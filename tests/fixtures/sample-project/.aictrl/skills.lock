@@ -1,0 +1,8 @@
+version: 1
+skills:
+- slug: code-review
+  version: '1.2.3'
+  content_hash: placeholder
+- slug: testing-guide
+  version: '2.0.1'
+  content_hash: placeholder

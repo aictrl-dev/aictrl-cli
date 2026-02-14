@@ -1,0 +1,13 @@
+allowed_tools:
+  - Bash
+  - Read
+  - Grep
+  - Edit
+metadata:
+  team_convention: "always-review-tests"
+sections:
+  team_standards: |
+    ## Our Team Standards
+    - Always check test coverage
+    - Review error handling
+    - Verify TypeScript types

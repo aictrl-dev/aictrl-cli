@@ -1,0 +1,24 @@
+slug: code-review
+name: code-review
+description: "Guides thorough code reviews with security and performance focus"
+version: "1.2.3"
+instructions: |
+  You are a code review assistant. Review code for:
+  - Security vulnerabilities
+  - Performance issues
+  - Code style and readability
+  - Test coverage
+sections:
+  examples: |
+    ## Review Checklist
+    - [ ] Check for SQL injection
+    - [ ] Check for XSS vulnerabilities
+    - [ ] Verify error handling
+  team_standards: |
+    ## Standards
+    - Use TypeScript strict mode
+    - All functions must have return types
+tags: [review, quality, security]
+allowed_tools: [Bash, Read, Grep]
+metadata:
+  stack: "api,ui"

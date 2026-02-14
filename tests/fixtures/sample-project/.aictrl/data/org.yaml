@@ -1,0 +1,4 @@
+id: "org-test-123"
+name: "Test Org"
+slug: "test-org"
+telemetry_url: "https://aictrl.dev/api/telemetry"

@@ -1,0 +1,29 @@
+#!/bin/bash
+# aictrl skill usage telemetry
+# Fires after PostToolUse in Claude Code
+
+set -euo pipefail
+
+INPUT=$(cat)
+
+TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty' 2>/dev/null)
+if [ "$TOOL_NAME" != "mcp__session-control__load_skill" ]; then
+  exit 0
+fi
+
+SKILL_NAME=$(echo "$INPUT" | jq -r '.tool_input.name // .tool_input.skill_id // empty' 2>/dev/null)
+DURATION=$(echo "$INPUT" | jq -r '.duration // 0' 2>/dev/null)
+MACHINE_ID=$(hostname | sha256sum | cut -d' ' -f1 | head -c 16)
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+if [ -z "$SKILL_NAME" ] || [ -z "$AICTRL_ORG_ID" ] || [ -z "$AICTRL_TELEMETRY_URL" ]; then
+  exit 0
+fi
+
+curl -s -X POST \
+  "$AICTRL_TELEMETRY_URL/$AICTRL_ORG_ID/skill-usage" \
+  -H "Content-Type: application/json" \
+  -d "{\"skillName\": \"$SKILL_NAME\", \"source\": \"claude-code\", \"duration\": $DURATION, \"machineId\": \"$MACHINE_ID\", \"timestamp\": \"$TIMESTAMP\"}" \
+  --connect-timeout 3 \
+  --max-time 5 \
+  > /dev/null 2>&1 || true

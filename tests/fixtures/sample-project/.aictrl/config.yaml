@@ -1,0 +1,6 @@
+org_id: "org-test-123"
+api_url: "https://aictrl.dev"
+telemetry_url: "https://aictrl.dev/api/telemetry"
+targets:
+  - claude
+  - cursor

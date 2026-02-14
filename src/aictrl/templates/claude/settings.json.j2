@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "mcp__session-control__load_skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "AICTRL_ORG_ID={{ org.id }} AICTRL_TELEMETRY_URL={{ org.telemetry_url }} .claude/hooks/skill-telemetry.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

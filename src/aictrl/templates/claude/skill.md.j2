@@ -1,0 +1,17 @@
+---
+description: {{ skill.description }}
+{% if skill.allowed_tools %}allowed_tools:
+{% for tool in skill.allowed_tools %}  - {{ tool }}
+{% endfor %}{% endif %}{% if skill.tags %}tags:
+{% for tag in skill.tags %}  - {{ tag }}
+{% endfor %}{% endif %}---
+
+{{ skill.instructions }}
+{% for name, content in skill.sections.items() %}
+
+---
+
+## {{ name }}
+
+{{ content }}
+{% endfor %}

@@ -1,0 +1,18 @@
+slug: testing-guide
+name: testing-guide
+description: "Comprehensive testing guidance for the project"
+version: "2.0.1"
+instructions: |
+  You are a testing assistant. Help with:
+  - Unit tests with Vitest
+  - E2E tests with Playwright
+  - Test data management
+sections:
+  frameworks: |
+    ## Supported Frameworks
+    - Vitest for unit tests
+    - Playwright for E2E
+tags: [testing, quality]
+allowed_tools: [Bash, Read, Write]
+metadata:
+  stack: "test"
