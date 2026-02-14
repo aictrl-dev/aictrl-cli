@@ -4,16 +4,37 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aictrl"
-version = "0.1.0"
+version = "0.1.1"
 description = "Build tool for AI coding skills — compiles skill definitions into tool-specific output"
+readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
+authors = [
+    { name = "aictrl-dev", email = "hello@aictrl.dev" },
+]
+keywords = ["ai", "skills", "claude-code", "cursor", "coding-assistant", "developer-tools"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Code Generators",
+]
 dependencies = [
     "jinja2>=3.1",
     "pyyaml>=6.0",
     "click>=8.0",
     "rich>=13.0",
 ]
+
+[project.urls]
+Homepage = "https://aictrl.dev"
+Repository = "https://github.com/aictrl-dev/aictrl-cli"
+Issues = "https://github.com/aictrl-dev/aictrl-cli/issues"
 
 [project.optional-dependencies]
 dev = [
